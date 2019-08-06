@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <script>
+
+                var seconds = 60;
+                var minutes = 2;
+                    var cronometro = {
+                
+                      loopTimer: null, //variável de controle para o setInterval
+                
+                      loop: function() {
+                        //função que faz o loop
+                        var me = this; //referencia para o contexto do temporizador
+                        this.loopTimer = setInterval(function() {
+                          me.relogio();
+                        }, 1000); //Executa a transição a cada 1s
+                      },
+                
+                      relogio: function() {
+                        console.log("relogio");
+                        //Aqui vem a lógica do relogio
+                        seconds = seconds - 1;
+                        if ((seconds == 0) & (minutes != 0)) {
+                          minutes = minutes - 1;
+                          seconds = 59;
+                        } else if ((minutes == 0) & (seconds == 0)) {
+                          document.getElementById("minutes").value = "00".slice(-2);
+                          document.getElementById("seconds").value = "00".slice(-2);
+                          temporizador.pause();
+                        }
+                
+                        document.getElementById("minutes").value = ("00" + minutes).slice(-2);
+                        document.getElementById("seconds").value = ("00" + seconds).slice(-2);
+                      },
+                
+                      play: function() {
+                        this.relogio();
+                        this.loop();
+                      },
+                      pause: function() {
+                        clearInterval(this.loopTimer); //"Pause". O clearInterval para tudo.
+                      }
+                    };
+                </script>
+        <style>
+            body{
+                background-color: indigo;
+            }
+            .container{
+                width: 100%;
+                height: 400px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-size: -webkit-xxx-large;
+            }
+            input{
+                color: #FFFFFF;
+                  font-size: 60px;
+                  text-shadow: -1px 2px 1px rgba(0, 0, 0, 1);
+                  background: none;
+                  border: none;
+                  width: 100px;
+            }
+            button{
+                border-radius: 25px;
+                font-weight: 900;
+                width: 100px;
+                background-color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+
+            <div class="cronometro">
+                    <input type="text" id="minutes" value="00" class="inp-pontuacao" disabled="disabled" />:
+                    <input type="text" id="seconds" value="00" class="inp-pontuacao" disabled="disabled" />
+            </div>
+            <div class="butoes">
+                <button 
+                 onclick="cronometro.play()" 
+                >Play</button>
+
+                <button 
+                 onclick="cronometro.pause()" 
+                >Pause</button>
+
+            </div>
+
+        </div>
+
+    </body>
+</html>
