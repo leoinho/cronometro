@@ -1,48 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-            <script>
-
-                var seconds = 60;
-                var minutes = 2;
-                    var cronometro = {
-                
-                      loopTimer: null, //variável de controle para o setInterval
-                
-                      loop: function() {
-                        //função que faz o loop
-                        var me = this; //referencia para o contexto do temporizador
-                        this.loopTimer = setInterval(function() {
-                          me.relogio();
-                        }, 1000); //Executa a transição a cada 1s
-                      },
-                
-                      relogio: function() {
-                        console.log("relogio");
-                        //Aqui vem a lógica do relogio
-                        seconds = seconds - 1;
-                        if ((seconds == 0) & (minutes != 0)) {
-                          minutes = minutes - 1;
-                          seconds = 59;
-                        } else if ((minutes == 0) & (seconds == 0)) {
-                          document.getElementById("minutes").value = "00".slice(-2);
-                          document.getElementById("seconds").value = "00".slice(-2);
-                          temporizador.pause();
-                        }
-                
-                        document.getElementById("minutes").value = ("00" + minutes).slice(-2);
-                        document.getElementById("seconds").value = ("00" + seconds).slice(-2);
-                      },
-                
-                      play: function() {
-                        this.relogio();
-                        this.loop();
-                      },
-                      pause: function() {
-                        clearInterval(this.loopTimer); //"Pause". O clearInterval para tudo.
-                      }
-                    };
-                </script>
+        <script src="./script.js"></script>
+    
         <style>
             body{
                 background-color: indigo;
