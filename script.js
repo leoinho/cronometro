@@ -44,6 +44,12 @@ var cronometro = {
   },
 
   play: function() {
+    if (!seconds || !minutes) {
+      return false;
+    }
+    if ((seconds == 0) & (minutes == 0)) {
+      return false;
+    }
     if (ligado != true) {
       clearInterval(this.loopTimer);
       this.loop();
@@ -56,8 +62,3 @@ var cronometro = {
     clearInterval(this.loopTimer); //"Pause". O clearInterval para tudo.
   }
 };
-
-//var leoModulo = import("leonardo-meu-modulo");
-//import { leoModulo } from "./node_modules/leonardo-meu-modulo";
-// import { LeoModulo } from "leonardo-meu-modulo";
-// console.log(LeoModulo("teste"));
