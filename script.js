@@ -1,6 +1,20 @@
-var seconds = 60;
-var minutes = 2;
+var seconds;
+var minutes;
+
+descancando = () => {
+  seconds = 59;
+  minutes = 4;
+  cronometro.play();
+};
+trabalhando = () => {
+  seconds = 59;
+  minutes = 24;
+  cronometro.play();
+};
+// var seconds = 59;
+// var minutes = 24; //document.getElementById("digita");
 var ligado = false; //variavel de contrlo, para o play ser apertado apenas uma vez
+var audio = new Audio("som_alarme.mp3");
 var cronometro = {
   loopTimer: null, //variável de controle para o setInterval
 
@@ -21,7 +35,8 @@ var cronometro = {
     } else if ((minutes == 0) & (seconds == 0)) {
       document.getElementById("minutes").value = "00".slice(-2);
       document.getElementById("seconds").value = "00".slice(-2);
-      temporizador.pause();
+      cronometro.pause();
+      audio.play();
     }
 
     document.getElementById("minutes").value = ("00" + minutes).slice(-2);
@@ -41,3 +56,8 @@ var cronometro = {
     clearInterval(this.loopTimer); //"Pause". O clearInterval para tudo.
   }
 };
+
+//var leoModulo = import("leonardo-meu-modulo");
+//import { leoModulo } from "./node_modules/leonardo-meu-modulo";
+// import { LeoModulo } from "leonardo-meu-modulo";
+// console.log(LeoModulo("teste"));

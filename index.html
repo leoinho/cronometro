@@ -2,7 +2,7 @@
 <html>
     <head>
         <script src="./script.js"></script>
-    
+        <!-- <script src = "./require.js" > </script> -->
         <style>
             body{
                 background-color: indigo;
@@ -28,29 +28,57 @@
             button{
                 border-radius: 25px;
                 font-weight: 900;
-                width: 100px;
+                width: 115px;
                 background-color: white;
+            }
+            .principal{
+                border: solid 2px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 27px;
+                border-radius: 25px;
+            }
+            .cronometro{
+                margin-left: 30px;
+            }
+            .digita{
+                border-bottom: solid 2px;
             }
         </style>
     </head>
     <body>
         <div class="container">
-
-            <div class="cronometro">
-                    <input type="text" id="minutes" value="00" class="inp-pontuacao" disabled="disabled" />:
-                    <input type="text" id="seconds" value="00" class="inp-pontuacao" disabled="disabled" />
+            <div class="principal">
+                    <!--<div class="digita">
+                            minutos: <input type="text" id="digita" required="" /><br>
+                    </div>-->
+                    <div class="butoes">
+                        <button 
+                         onclick="descancando()" 
+                        >Descançando</button>
+        
+                        <button 
+                         onclick="trabalhando()" 
+                        >Trabalhando</button>
+        
+                    </div>
+                    <div class="cronometro">
+                            <input type="text" id="minutes" value="00" class="inp-pontuacao" disabled="disabled" />:
+                            <input type="text" id="seconds" value="00" class="inp-pontuacao" disabled="disabled" />
+                    </div>
+                    <div class="butoes">
+                        <button 
+                         onclick="cronometro.play()" 
+                        >Play</button>
+        
+                        <button 
+                         onclick="cronometro.pause()" 
+                        >Pause</button>
+        
+                    </div>
             </div>
-            <div class="butoes">
-                <button 
-                 onclick="cronometro.play()" 
-                >Play</button>
-
-                <button 
-                 onclick="cronometro.pause()" 
-                >Pause</button>
-
-            </div>
-
         </div>
 
     </body>
