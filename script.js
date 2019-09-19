@@ -1,7 +1,7 @@
 var seconds;
 var minutes;
 
-descancando = () => {
+descansando = () => {
   seconds = 59;
   minutes = 4;
   cronometro.play();
